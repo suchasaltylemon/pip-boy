@@ -1,10 +1,10 @@
-from package_man import PackageMan
+from pip_boy import PipBoy
 from ui import UI
 
 
 def main():
-    package_man = PackageMan()
-    ui = UI(package_man)
+    pip_boy = PipBoy()
+    ui = UI(pip_boy)
 
     ui.start()
 
