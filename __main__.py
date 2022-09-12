@@ -1,6 +1,3 @@
-import os.path
-from json import load
-
 from package_man import PackageMan
 from ui import UI
 
