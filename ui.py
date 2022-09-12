@@ -9,14 +9,7 @@ SCREEN_NAME = "PackageMan"
 
 
 def get_package_install_code(package_path: str):
-    return \
-        f"""
-        ```
-        from sys import path
-        sys.path.append({package_path})
-        ```
-        
-        """
+    return ''
 
 
 class UI:
@@ -42,10 +35,7 @@ class UI:
 
         self._txt_logger.delete("0.0", END)
         self._package_man.install_package(user_input)
-        self._txt_logger.insert("1.0", f"Finished installing {user_input}. Please add the following to the top of the "
-                                       f"main python module: " + get_package_install_code(
-            self._package_man.install_path) + \
-                                f"and import '{user_input}' as normal.")
+        self._txt_logger.insert("1.0", f"Finished installing {user_input}. You can now import '{user_input}' as normal.")
 
     def _display_installer(self):
         container = _Frame(master=self._tk)
