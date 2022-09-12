@@ -3,9 +3,9 @@ from threading import Thread
 from tkinter import Tk as _Tk, Label as _Label, Frame as _Frame, Entry, Button, RIGHT, LEFT, BOTTOM, Text, END
 from typing import Optional
 
-from package_man import PackageMan
+from pip_boy import PipBoy
 
-SCREEN_NAME = "PackageMan"
+SCREEN_NAME = "Pip-Boy"
 
 
 def get_package_install_code(package_path: str):
@@ -13,11 +13,11 @@ def get_package_install_code(package_path: str):
 
 
 class UI:
-    def __init__(self, package_man: PackageMan):
+    def __init__(self, pip_boy: PipBoy):
         self._reading = False
         self._thread = Thread(target=self._loop)
 
-        self._package_man = package_man
+        self._pip_boy = pip_boy
         self._txt_logger: Optional[Text] = None
 
     def start(self):
@@ -34,7 +34,7 @@ class UI:
         user_input = ent.get()
 
         self._txt_logger.delete("0.0", END)
-        self._package_man.install_package(user_input)
+        self._pip_boy.install_package(user_input)
         self._txt_logger.insert("1.0", f"Finished installing {user_input}. You can now import '{user_input}' as normal.")
 
     def _display_installer(self):
