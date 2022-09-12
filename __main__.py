@@ -7,6 +7,7 @@ def main():
     ui = UI(pip_boy)
 
     ui.start()
+    pip_boy.start()
 
 
 if __name__ == "__main__":
